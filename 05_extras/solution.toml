@@ -1,0 +1,21 @@
+[project]
+name = "pixi_extras"
+version = "0.1.0"
+description = "Advanced Pixi features"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "linux-64", "osx-64", "win-64"]
+
+[dependencies]
+python = "3.11.*"
+
+# --- Tasks with Dependencies ---
+[tasks]
+# A simple task
+download = "python -c 'import time; print(\"Downloading data...\"); time.sleep(1); print(\"Done.\")'"
+
+# This task depends on 'download' finishing successfully
+preprocess = { cmd = "python data_prep.py", depends-on = ["download"] }
+
+# This task depends on 'preprocess'
+# You can run the whole pipeline with: pixi run analyze
+analyze = { cmd = "python analysis.py", depends-on = ["preprocess"] }
