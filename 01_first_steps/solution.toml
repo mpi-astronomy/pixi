@@ -1,0 +1,15 @@
+[workspace]
+authors = ["TheSkyentist <raphael.hviding@gmail.com>"]
+channels = ["conda-forge"]
+name = "01_first_steps"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.13.*"
+astropy = ">=7.2.0,<8"
+
+[pypi-dependencies]
+dust-extinction = ">=1.6, <2"
