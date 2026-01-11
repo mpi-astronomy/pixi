@@ -1,0 +1,24 @@
+[workspace]
+authors = ["TheSkyentist <raphael.hviding@gmail.com>"]
+channels = ["conda-forge"]
+name = "02_multi_environment"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.9.*"
+colorama = ">=0.4.6,<0.5"
+
+[feature.legacy.dependencies]
+pandas = "<1.5"
+numpy = "<1.22"
+
+[feature.modern.dependencies]
+pandas = ">=2.0"
+numpy = ">=1.24"
+
+[environments]
+modern = ["modern"]
+legacy = ["legacy"]
