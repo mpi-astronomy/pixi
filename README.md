@@ -1,6 +1,6 @@
 # A Guide to Pixi for Astronomy Researchers
 
-Welcome to this guide designed to help astronomy researchers transition from Conda to [Pixi](https://pixi.sh/), a modern package manager mainly for Python and C++ that emphasizes reproducibility, speed, and developer experience.
+Welcome to this guide designed to help astronomy researchers transition from Conda to [Pixi](https://pixi.sh/), a modern package manager for Python, Rust, C/C++, and others that emphasizes reproducibility, speed, and developer experience.
 
 This guide is broken down into 5 steps, each located in its own subdirectory.
 
