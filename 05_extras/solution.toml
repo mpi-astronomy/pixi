@@ -1,21 +1,14 @@
-[project]
-name = "pixi_extras"
-version = "0.1.0"
-description = "Advanced Pixi features"
+[workspace]
+authors = ["TheSkyentist <raphael.hviding@gmail.com>"]
 channels = ["conda-forge"]
-platforms = ["osx-arm64", "linux-64", "osx-64", "win-64"]
+name = "05_extras"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+download = """python -c 'import time; print("Downloading..."); time.sleep(1)'"""
+preprocess = { cmd = "python data_prep.py", depends-on = ["download"] }
+analyze = { cmd = "python analysis.py", depends-on = ["preprocess"] }
 
 [dependencies]
-python = "3.11.*"
-
-# --- Tasks with Dependencies ---
-[tasks]
-# A simple task
-download = "python -c 'import time; print(\"Downloading data...\"); time.sleep(1); print(\"Done.\")'"
-
-# This task depends on 'download' finishing successfully
-preprocess = { cmd = "python data_prep.py", depends-on = ["download"] }
-
-# This task depends on 'preprocess'
-# You can run the whole pipeline with: pixi run analyze
-analyze = { cmd = "python analysis.py", depends-on = ["preprocess"] }
+python = ">=3.14.2,<3.15"

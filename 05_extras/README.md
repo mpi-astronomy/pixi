@@ -20,15 +20,9 @@ pixi task add download "python -c 'import time; print(\"Downloading...\"); time.
 ```
 
 **2. Create dependent tasks:**
-*Note: The CLI for dependent tasks is basic, you often edit `pixi.toml` for lists.*
-
-Open `pixi.toml` and manually edit the tasks to add `depends-on`:
-
-```toml
-[tasks]
-download = "python -c 'import time; print(\"Downloading...\"); time.sleep(1)'"
-preprocess = { cmd = "python data_prep.py", depends-on = ["download"] }
-analyze = { cmd = "python analysis.py", depends-on = ["preprocess"] }
+```bash
+pixi task add preprocess "python data_prep.py" --depends-on download
+pixi task add analyze "python analysis.py" --depends-on preprocess
 ```
 
 **3. Run the pipeline:**
